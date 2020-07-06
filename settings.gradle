@@ -1,0 +1,4 @@
+rootProject.name = 'examMPP'
+include 'core'
+include 'web'
+
