@@ -1,1 +1,7 @@
 <p>contest-participants works!</p>
+<ul>
+  <li *ngFor="let owner of owners">
+    {{owner.id}}, {{owner.name}}, {{owner.email}}
+  </li>
+</ul>
+

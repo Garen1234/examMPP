@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnimalcontestComponent } from './animalcontest/animalcontest.component';
 import { ContestParticipantsComponent } from './contest-participants/contest-participants.component';
+import {OwnerService} from "./contest-participants/owner.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,9 +16,11 @@ import { ContestParticipantsComponent } from './contest-participants/contest-par
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [OwnerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
