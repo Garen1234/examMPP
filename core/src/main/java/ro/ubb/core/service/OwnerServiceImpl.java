@@ -2,10 +2,13 @@ package ro.ubb.core.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ro.ubb.core.model.Animal;
 import ro.ubb.core.model.Owner;
+import ro.ubb.core.repository.AnimalRepository;
 import ro.ubb.core.repository.OwnerRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -14,6 +17,8 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Autowired
     OwnerRepository ownerRepository;
+    @Autowired
+    AnimalRepository animalRepository;
 
     @Override
     public List<Owner> getAllOwners() {
@@ -23,7 +28,17 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public Owner getOwnerWithAnimals(Long ownerid) {
-        return null;
+        Owner n = new Owner();
+        Owner owner = ownerRepository.findById(ownerid).orElse(n);
+        List<Animal> animals = animalRepository.findAll();
+
+        for(Animal animal : animals )
+            if(animal.getOwnerId() == ownerid)
+        {
+            owner.setAnimals( owner.getAnimals() +animal.toString() );
+        }
+
+        return owner;
     }
 
     @Override

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import ro.ubb.core.model.Owner;
 import ro.ubb.core.service.OwnerService;
 import ro.ubb.web.converter.converter;
 import ro.ubb.web.dto.OwnerDTO;
@@ -23,5 +24,13 @@ public class OwnerController {
     Set<OwnerDTO> getOwners()
     {
         return converter.convertModelsToDtos(  ownerService.getAllOwners() );
+    }
+
+    @RequestMapping(value="/owner" , method=RequestMethod.GET)
+    Owner  getOwnerandAnimals(int ownerid)
+    {
+        System.out.println("hi");
+        Owner result = ownerService.getOwnerWithAnimals((long) ownerid);
+        return result;
     }
 }

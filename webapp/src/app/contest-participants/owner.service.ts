@@ -15,4 +15,10 @@ export class OwnerService{
   {
     return this.httpClient.get<Owner[]>(URL);
   }
+
+  getOwner(id:number):Observable<Owner>
+  {
+    console.log("hi");
+    return this.httpClient.get<Owner>("http://localhost:8080/api/owner");
+  }
 }

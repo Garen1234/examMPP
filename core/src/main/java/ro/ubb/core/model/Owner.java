@@ -11,6 +11,15 @@ import javax.persistence.Entity;
 @Builder
 public class Owner extends BaseEntity<Long> {
  private String name , email;
+ private String animals;
+
+    public String getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(String animals) {
+        this.animals = animals;
+    }
 
     public String getName() {
         return name;

@@ -1,7 +1,11 @@
 <p>contest-participants works!</p>
 <ul>
+
   <li *ngFor="let owner of owners">
-    {{owner.id}}, {{owner.name}}, {{owner.email}}
+    <a [routerLink]="['/animalcontest/contest-participants/details', owner.id ]" >
+    {{owner.name}}, {{owner.email}}
+    </a>
   </li>
+
 </ul>
 

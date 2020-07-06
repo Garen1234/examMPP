@@ -7,12 +7,14 @@ import { AnimalcontestComponent } from './animalcontest/animalcontest.component'
 import { ContestParticipantsComponent } from './contest-participants/contest-participants.component';
 import {OwnerService} from "./contest-participants/owner.service";
 import {HttpClientModule} from "@angular/common/http";
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnimalcontestComponent,
-    ContestParticipantsComponent
+    ContestParticipantsComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
